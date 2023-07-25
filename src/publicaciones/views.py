@@ -7,14 +7,14 @@ from django.views.generic import ListView, CreateView, UpdateView , DeleteView, 
 from .forms import CrearPublicacionForm , ComentarioForm
 from django.urls import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
-from core.mixins import SuperusuarioAutorMixin, ColaboradorMixin
+from core.mixins import SuperusuarioAutorMixin, ColaboradorMixin, VisitanteMixin, MiembroMixin
 from django.core.exceptions import PermissionDenied
 
 
 
 
 # View que renderiza las publicaciones
-class VerPublicaciones(ListView):
+class VerPublicaciones(ListView, VisitanteMixin):
     model = Publicaciones
     template_name = 'publicaciones/publicaciones.html'
     context_object_name = 'posteos'
@@ -63,7 +63,7 @@ class EliminarPost(SuperusuarioAutorMixin, LoginRequiredMixin, DeleteView):
 
 # View para ver mas
 
-class PostDetalle(DetailView):
+class PostDetalle(DetailView, MiembroMixin, VisitanteMixin):
     template_name = 'publicaciones/detalle-post.html'
     model = Publicaciones
     context_object_name = 'post'
@@ -93,7 +93,7 @@ class PostDetalle(DetailView):
 
 # View que borra comentarios
 
-class BorrarComertarioView(SuperusuarioAutorMixin, LoginRequiredMixin, DeleteView):
+class BorrarComertarioView(SuperusuarioAutorMixin, MiembroMixin, LoginRequiredMixin, DeleteView):
     model = Comentario
     template_name = 'publicaciones/borrar-comentario.html'
 

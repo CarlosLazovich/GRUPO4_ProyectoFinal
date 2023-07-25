@@ -21,4 +21,4 @@ class CrearPublicacionForm(forms.ModelForm):
 class ComentarioForm(forms.ModelForm):
     class Meta:
         model = Comentario
-        fields = ['text']
+        fields = ['texto']
