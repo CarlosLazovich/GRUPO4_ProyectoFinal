@@ -2,7 +2,7 @@ from typing import Any, Dict
 from django.forms.models import BaseModelForm
 from django.http import HttpResponse
 from django.shortcuts import redirect
-from publicaciones.models import Publicaciones, Comentario
+from publicaciones.models import Publicaciones, Comentario, Categoria
 from django.views.generic import ListView, CreateView, UpdateView , DeleteView, DetailView
 from .forms import CrearPublicacionForm , ComentarioForm
 from django.urls import reverse
@@ -19,10 +19,35 @@ class VerPublicaciones(ListView, VisitanteMixin):
     template_name = 'publicaciones/publicaciones.html'
     context_object_name = 'posteos'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categorias'] = Categoria.objects.all
+        return context
+
 
     def get_queryset(self):
-        consulta_anterior = super().get_queryset()
-        return consulta_anterior.order_by('fecha')
+        queryset = super().get_queryset()
+
+        # Filtrando por categoria
+        categoria_seleccionada = self.request.GET.get('categoria')
+        if categoria_seleccionada:
+            queryset = queryset.filter(categoria = categoria_seleccionada)
+
+
+        # Ordenando por distintos criterios
+        orden = self.request.GET.get('orderby')
+        if orden:
+            if orden == 'fecha_asc':
+                queryset = queryset.order_by('fecha')
+            elif orden == 'fecha_desc':
+                queryset = queryset.order_by('-fecha')
+            elif orden == 'alf_asc':
+                queryset = queryset.order_by('titulo')
+            elif orden == 'alf_desc':
+                queryset = queryset.order_by('-titulo')              
+
+
+        return queryset
 
 
 #View que crea posteos nuevos
