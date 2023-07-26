@@ -32,7 +32,7 @@
   <header>
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">LOGO</a>
+          <a class="navbar-brand" href="{% url 'index' %}"><i class="fa-solid fa-plane"></i> BLOG VIAJERO</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -56,7 +56,7 @@
                   <i class="fa-regular fa-user"></i>
                 </a>
               
-                <ul class="dropdown-menu text-capitalize" style="left: -420%;">
+                <ul class="dropdown-menu dropdown-menu-lg-end text-capitalize">
                   
                   {% if user.is_authenticated %}
                   <li><a class="dropdown-item">{{user.username}}</a></li>
@@ -91,9 +91,9 @@
   </main>
 
 
-  {% comment %} <footer class="w-100">
+   <footer class="w-100 bg-light">
     <p class="text-center">Copyright &copy; Blog de Viajes 2023</p>
-  </footer> {% endcomment %}
+  </footer>
 
 
   <!-- Bootstrap JavaScript Libraries -->

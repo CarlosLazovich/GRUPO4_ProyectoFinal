@@ -1,6 +1,27 @@
 {% extends 'base.html' %}
+{% load static %}
   
 {% block contenido %}
+
+
+<div class="form-container">
+    
+    <div class="header text-center">
+        <p class="m-0"> ¿No tienes una cuenta?
+            <a href="{% url 'usuarios:registrarse' %}">Registrarse</a>
+        </p>
+        <h2>Iniciar Sesion</h2>
+    </div>
+    <form method = "post"> {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit" class="custom-button">Iniciar Sesion</button>
+
+    </form>
+
+</div> 
+
     
 {% endblock contenido %}
     
