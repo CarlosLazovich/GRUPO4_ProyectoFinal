@@ -22,7 +22,7 @@ class Publicaciones(models.Model):
     post = models.TextField()
     categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, related_name= 'posteos', null= True) 
     creador = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='posteos_usuario')
-
+    meGusta = models.ManyToManyField(Usuario, related_name='publicaciones_gustadas', blank=True)
 
     def __str__(self):
         return self.titulo

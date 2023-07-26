@@ -1,7 +1,7 @@
 from typing import Any, Dict
 from django.forms.models import BaseModelForm
 from django.http import HttpResponse
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from publicaciones.models import Publicaciones, Comentario, Categoria
 from django.views.generic import ListView, CreateView, UpdateView , DeleteView, DetailView
 from .forms import CrearPublicacionForm , ComentarioForm
@@ -124,6 +124,21 @@ class BorrarComertarioView(SuperusuarioAutorMixin, MiembroMixin, LoginRequiredMi
 
     def get_success_url(self):
         return reverse('publicaciones:detalle-post', args = [self.object.post.id])
+    
+
+def me_gusta(request):
+    if request.method == 'POST':
+        publicacion_id = request.POST.get('publicacion_id')
+        publicacion = get_object_or_404(Publicaciones, id = publicacion_id)
+        usuario = request.user
+
+        if publicacion.meGusta.filter(id=usuario.id).exists():
+            publicacion.meGusta.remove(usuario)
+        else:
+            publicacion.meGusta.add(usuario)
+
+    return redirect('publicaciones:publicaciones')        
+
 
 
           
