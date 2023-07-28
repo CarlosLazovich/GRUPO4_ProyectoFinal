@@ -8,13 +8,12 @@ class CrearPublicacionForm(forms.ModelForm):
         labels = {
             'titulo' : '',
             'post' : '',
-            'categoria' : ''
+            'categoria': 'SELECCIONAR CATEGORIA',
         }
 
         widgets = {
-            'categoria' : forms.Select(attrs={'class' : 'form-select', 'placeholder' : 'Categoria'}),
-            'titulo' : forms.TextInput(attrs= {'placeholder' : 'Aca va el titulo'}),
-            'post' : forms.TextInput(attrs= {'placeholder' : 'Escribi algo..', 'class': 'form-control'})
+            'titulo' : forms.TextInput(attrs= {'placeholder' : 'TITULO'}),
+            'post' : forms.TextInput(attrs= {'placeholder' : 'TEXTO'})
         }
 
 
@@ -22,3 +21,9 @@ class ComentarioForm(forms.ModelForm):
     class Meta:
         model = Comentario
         fields = ['texto']
+        labels = {
+            'texto' : '',
+        }
+        widgets = {
+            'texto' : forms.TextInput(attrs= {'placeholder' : 'Deja tu comentario'}),
+        }
