@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+
+{% block contenido %}
+
+<div class="post-container">
+    <h1>MIS PUBLICACIONES</h1>
+    
+    {% for post in posteos %}
+        <div class="card m-5">
+            <div class="card-header">
+            {{ post.fecha }}
+            </div>
+            <div class="card-body">
+            <h5 class="card-title">{{ post.titulo }}</h5>
+            <p class="card-text">{{ post.post }}</p>
+            <p class="card-text">{{ post.categoria }}</p>
+            <p class="card-text">{{ post.creador }}</p>
+            <a href="{% url 'publicaciones:detalle-post' post.id %}" class="custom-button">Ver más</a>
+
+
+            
+            {% if user.is_superuser or user == post.creador %}
+            <a href="{% url 'publicaciones:editar-post' post.id %}" class="custom-button">Editar</a>
+            <a href="{% url 'publicaciones:eliminar-post' post.id %}" class="custom-button-danger">Eliminar posteo</a>
+            {% endif %}
+
+
+
+            </div>
+        </div>
+    {% endfor %}
+
+</div>
+        
+        {% if user.is_authenticated %}
+        <a href="{% url 'publicaciones:postear' %}" class="custom-button" style="margin-left: 44%;">Postear algo nuevo</a>
+
+        {% endif %}
+            
+   
+{% endblock contenido %}
+    
