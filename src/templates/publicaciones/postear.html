@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+  
+{% block contenido %}
+
+
+<div class="postear-container">
+
+    <h2>Crear Publicacion</h2>
+    
+    <form method="post">{% csrf_token %}
+    
+        {{form.as_p}}
+        
+        <button type="submit" class="custom-button">Publicar!</button>
+    
+    
+    </form>
+
+</div>
+
+
+{% endblock contenido %}
+    

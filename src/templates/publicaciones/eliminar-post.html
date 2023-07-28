@@ -1,6 +1,15 @@
 {% extends 'base.html' %}
   
 {% block contenido %}
+<div class="form-container">
     
+    <div class="header text-center">
+        <h2>¿Deseas eliminar la publicacion seleccionada?</h2>
+    </div>
+    <form method="post">{% csrf_token %}
+        <button class="custom-button" type="submit">Eliminar</button>
+    </form>
+
+</div> 
 {% endblock contenido %}
     
