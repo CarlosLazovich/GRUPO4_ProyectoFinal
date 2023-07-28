@@ -3,35 +3,38 @@
 
 {% block contenido %}
 
-<div class="post-container">
-    <h1>MIS PUBLICACIONES</h1>
-    
-    {% for post in posteos %}
-        <div class="card m-5">
-            <div class="card-header">
-            {{ post.fecha }}
+<div class="inner-container">
+    <h2>Todas las publicaciones</h2>
+    <div class="publicaciones-cards">
+      
+      {% for post in posteos %}
+      <div class="publicaciones-card">
+        {% comment %} IMAGEN DE PRUEBA {% endcomment %}
+          <img src="https://img.unocero.com/2016/10/viajero.jpg">
+          {% comment %} {% endcomment %}
+          <div class="d-flex flex-column justify-content-between w-100">
+            <div>
+              <p class="categoria">#{{post.categoria}}</p>
+              <h3>{{post.titulo}}</h3>
+              <p class="fecha">Publicado el {{post.fecha}}</p>
             </div>
-            <div class="card-body">
-            <h5 class="card-title">{{ post.titulo }}</h5>
-            <p class="card-text">{{ post.post }}</p>
-            <p class="card-text">{{ post.categoria }}</p>
-            <p class="card-text">{{ post.creador }}</p>
-            <a href="{% url 'publicaciones:detalle-post' post.id %}" class="custom-button">Ver más</a>
-
-
-            
-            {% if user.is_superuser or user == post.creador %}
-            <a href="{% url 'publicaciones:editar-post' post.id %}" class="custom-button">Editar</a>
-            <a href="{% url 'publicaciones:eliminar-post' post.id %}" class="custom-button-danger">Eliminar posteo</a>
-            {% endif %}
-
-
-
+            <div class="d-flex justify-content-between">
+              <a href="{% url 'publicaciones:detalle-post' post.id %}" class="text-decoration-none">Leer Mas -></a>
+              <div>
+                {% if user.is_superuser or user == post.creador %}
+                <a href="{% url 'publicaciones:editar-post' post.id %}" title="Editar Posteo"><i class="fa-regular fa-pen-to-square"></i></a>
+                <a href="{% url 'publicaciones:eliminar-post' post.id %}" title="Eliminar Posteo"><i class="fa-regular fa-trash-can"></i></a>
+                {% endif %}
+              </div>
             </div>
+          </div>
         </div>
-    {% endfor %}
-
-</div>
+        <div class="divisor"></div>
+      {% endfor %}
+        
+    </div>
+  </div>
+  
         
         {% if user.is_authenticated %}
         <a href="{% url 'publicaciones:postear' %}" class="custom-button" style="margin-left: 44%;">Postear algo nuevo</a>
