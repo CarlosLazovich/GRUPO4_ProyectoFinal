@@ -37,7 +37,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav gap-3">
+            <ul class="navbar-nav align-items-center gap-3">
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="{% url 'index' %}">Home</a>
               </li>
@@ -53,7 +53,12 @@
 
               <div class="dropdown m-lg-auto">
                 <a class="dropdown-toggle text-decoration-none" style="color: #000;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  {% if user.imagen_perfil %}
+                  <img src=" {{ user.imagen_perfil.url }} " alt="imagen de perfil" class="rounded-circle" width="50" height="50">
+                  {% else %}
                   <i class="fa-regular fa-user"></i>
+                  {% endif %}
+                  
                 </a>
               
                 <ul class="dropdown-menu dropdown-menu-lg-end text-capitalize">
@@ -62,6 +67,7 @@
                   <li><a class="dropdown-item">{{user.username}}</a></li>
                   <li><a class="dropdown-item" href="#">Ir a mi perfil</a></li>
                   <li><a class="dropdown-item" href="{% url 'usuarios:logout' %}">Cerrar Sesion</a></li>
+                   
                     
                   {% else %}
 
