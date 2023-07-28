@@ -27,6 +27,16 @@ footer {
     border: none;
 }
 
+.custom-button-danger {
+    background-color: #9f0000;
+    border-radius: 10px;
+    color: #f5f5f5;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+
 /* 
 ESTILOS PARA LOS FORMULARIOS 
 
