@@ -3,6 +3,10 @@
 
 
 {% block contenido %}
-    <h2>mi numero es 3624...</h2>
+   <form method="post">{% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="custom-button">Enviar mensaje</button>
+
+   </form>
 {% endblock contenido %}
     
