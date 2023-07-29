@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 {% block contenido %}
 
-    <div class="detalle-post-container">
+    <div class="detalle-post-container inner-container">
 
         <h1>{{ post.titulo }}</h1>
         <div class="d-flex gap-2">
@@ -13,6 +13,11 @@
             |
             <p>{{post.creador}}</p>
         </div>
+        {% if post.imagen_publicacion %}
+          <img src="{{post.imagen_publicacion.url}}">
+        {% else %}
+          <img src="{% static 'img/post-default.webp' %}">
+        {% endif %}
         <p class="texto">{{post.post}}</p>
         <div class="comentarios-container">
             <h2>Comentarios</h2>

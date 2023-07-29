@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 {% block contenido %}
 
@@ -13,9 +13,13 @@
     
     {% for post in posteos %}
     <div class="publicaciones-card">
-      {% comment %} IMAGEN DE PRUEBA {% endcomment %}
-        <img src="https://img.unocero.com/2016/10/viajero.jpg">
-        {% comment %} {% endcomment %}
+      
+      {% if post.imagen_publicacion %}
+      <img src="{{post.imagen_publicacion.url}}">
+    {% else %}
+      <img src="{% static 'img/post-default.webp' %}">
+    {% endif %}
+
         <div class="d-flex flex-column justify-content-between w-100">
           <div>
             <p class="categoria">#{{post.categoria}}</p>

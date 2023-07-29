@@ -53,7 +53,7 @@
               <div class="dropdown m-lg-auto">
                 <a class="dropdown-toggle text-decoration-none" style="color: #000;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   {% if user.imagen_perfil %}
-                  <img src=" {{ user.imagen_perfil.url }} " alt="imagen de perfil" class="rounded-circle" width="50" height="50">
+                  <img src=" {{ user.imagen_perfil.url }} " alt="imagen de perfil" class="rounded-circle" width="30" height="30" style="object-fit: cover;">
                   {% else %}
                   <i class="fa-regular fa-user"></i>
                   {% endif %}
