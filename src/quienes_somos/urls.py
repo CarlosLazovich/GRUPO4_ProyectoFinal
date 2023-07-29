@@ -6,3 +6,4 @@ app_name = 'quienes-somos'
 urlpatterns = [
     path('quienes-somos/', views.quienesSomosView, name= 'quienes-somos'),
 ]
+

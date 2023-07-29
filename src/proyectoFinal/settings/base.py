@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'quienes_somos',
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
