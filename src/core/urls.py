@@ -1,5 +1,5 @@
 from django.urls import path, include
-from core import views  
+from core import views 
 
 
 
@@ -10,6 +10,6 @@ urlpatterns = [
     # includes
     path('publicaciones/', include('publicaciones.urls')),
     path('usuarios/', include('usuarios.urls')),
-    path('contacto/', include('contacto.urls'))
+    path('contacto/', include('contacto.urls')),   
 ]
 

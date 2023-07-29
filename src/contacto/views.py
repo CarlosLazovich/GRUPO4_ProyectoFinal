@@ -1,7 +1,7 @@
 from django.forms.models import BaseModelForm
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.urls import reverse, render
+from django.urls import reverse
 from django.views.generic import CreateView
 from .models import Contacto
 from .forms import ContactoForm
@@ -20,6 +20,6 @@ class ContactanosView(LoginRequiredMixin, CreateView):
         f.autor_id = self.request.user.id
         return super().form_valid(f)
     
-    def mensaje_enviado(request):
-        return render(request, 'contacto/mensaje-enviado.html', {})
+def mensaje_enviado(request):
+    return render(request, 'contacto/mensaje-enviado.html', {})
         

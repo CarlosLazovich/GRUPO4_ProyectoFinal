@@ -1,5 +1,6 @@
 from django.urls import path
-from .views import ContactanosView
+from .views import ContactanosView, mensaje_enviado
+
 
 
 app_name = 'contacto'
