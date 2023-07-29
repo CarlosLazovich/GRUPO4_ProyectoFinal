@@ -12,8 +12,5 @@ def indexView(request):
 def quienesSomosView(request):
     return render(request, 'contacto/quienes-somos.html', {})
 
-"""
-def contactoView(request):
-    return render(request, 'contacto/contacto.html', {})
-"""
+
 
