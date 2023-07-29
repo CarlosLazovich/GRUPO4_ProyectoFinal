@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'usuarios',
     'publicaciones',
     'contacto',
+    'quienes_somos',
 ]
 
 MIDDLEWARE = [

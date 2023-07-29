@@ -10,6 +10,7 @@ urlpatterns = [
     # includes
     path('publicaciones/', include('publicaciones.urls')),
     path('usuarios/', include('usuarios.urls')),
-    path('contacto/', include('contacto.urls')),   
+    path('contacto/', include('contacto.urls')),
+    path('quienes-somos/', include('quienes_somos.urls')),   
 ]
 

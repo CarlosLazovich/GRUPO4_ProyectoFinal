@@ -9,8 +9,7 @@ def indexView(request):
     ctx = {'posteos': posteos}
     return render(request, 'index.html', ctx)
 
-def quienesSomosView(request):
-    return render(request, 'contacto/quienes-somos.html', {})
+
 
 
 
