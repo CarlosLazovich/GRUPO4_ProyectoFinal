@@ -1,7 +1,27 @@
 {% extends 'base.html' %}
+{% load static %}
 
 
 {% block contenido %}
-    <h2>QUIENES SOMOS?</h2>
+<div class="card mb-3" style="display: flex; align-items: center; justify-content: center;">
+    <img src="{% static 'img/viajes.jpg' %}" class="card-img-top" style="max-width: 900px;" alt="...">
+    <div class="card-body">
+      <h2 class="card-title">¿QUIENES SOMOS?</h2>
+      <p class="card-text" style="text-align: justify;">¡Bienvenidos a nuestro mundo de aventuras y emociones! Somos un grupo de jóvenes apasionados por descubrir nuevos horizontes y compartir experiencias inolvidables en cada rincón del mundo.
 
-{% endblock contenido %} 
+        En primer lugar, permítenos contarles sobre nuestra misión. Nuestra pasión por el turismo y la exploración nos llevó a unir fuerzas para crear una comunidad única y vibrante que busca inspirar a otros jóvenes a sumergirse en la magia de viajar. Nosotros creemos que cada experiencia, cada viaje, es una oportunidad para crecer, aprender y conectarnos con personas y culturas diferentes. Queremos fomentar el turismo responsable y sostenible, promoviendo el respeto por el medio ambiente y las comunidades locales.
+        
+        Nuestro equipo está formado por jóvenes entusiastas, cada uno con sus propios intereses y especialidades. Desde expertos en senderismo y montañismo hasta aficionados de la cultura y la gastronomía local, cada uno aporta algo único a nuestro grupo. Pero, en última instancia, compartimos el deseo común de vivir la vida al máximo y dejar una huella positiva en el mundo.</p>
+        
+        <p class="card-text" style="text-align: justify;">A través de nuestra página de turismo, deseamos inspirar a otros jóvenes a explorar el mundo con curiosidad y mente abierta. No importa si eres un viajero experimentado o estás planeando tu primera gran aventura, en "BLOG VIAJERO" encontrarás información útil, consejos prácticos y relatos auténticos de nuestras propias travesías.
+
+        Nuestra comunidad está abierta a todos los jóvenes que deseen compartir sus propias experiencias y consejos de viaje. Queremos escuchar tus historias, ver tus fotos y aprender de tus aventuras. Juntos formamos una red de viajeros comprometidos con el enriquecimiento mutuo y el crecimiento personal a través de la exploración. 
+    
+        Recuerda, el mundo está lleno de tesoros esperando a ser descubiertos, ¡así que dejemos que la curiosidad nos guíe y las ganas de compartir nuestras aventuras nos unan! ¡Nos vemos en la próxima travesía!</p>
+    <footer>
+        <p>Derechos de autor © 2023 BLOG VIAJERO. Todos los derechos reservados. </p>
+    </div>
+  </div>
+  
+{% endblock contenido %}
+    
