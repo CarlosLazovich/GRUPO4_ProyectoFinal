@@ -2,11 +2,14 @@
 
 
 {% block contenido %}
-    <div class="mensaje-div">
-        <h6>Mensaje enviado correctamente</h6>
-
-    </div>
+<div class="form-container">
     
+    <div class="header text-center">
+        <h2>Mensaje enviado correctamente</h2>
+    </div>
+    <a href="{% url 'publicaciones:publicaciones' %}" class="custom-button">Visita nuestro blog</a>
+
+</div> 
 {% endblock contenido %}
     
 

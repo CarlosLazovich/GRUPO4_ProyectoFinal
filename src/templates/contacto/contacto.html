@@ -3,11 +3,25 @@
 
 
 {% block contenido %}
-   <form method="post">{% csrf_token %}
-        {{form.as_p}}
-        <button type="submit" class="custom-button">Enviar mensaje</button>
+
+
+<div class="form-container">
+    
+   <div class="header text-center">
+       <h2>Dejanos tu mensaje</h2>
+   </div>
+   <form method = "post"> {% csrf_token %}
+
+       {{ form.as_p }}
+
+       <button type="submit" class="custom-button">Enviar Mensaje</button>
 
    </form>
+
+</div> 
+
+
+
 {% endblock contenido %}
     
 
