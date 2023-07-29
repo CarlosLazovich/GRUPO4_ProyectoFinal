@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from publicaciones.models import Publicaciones
 
+
 # view que renderiza la pagina de inicio
 # renderiza las 4 ultimas publicaciones en el index
 def indexView(request):

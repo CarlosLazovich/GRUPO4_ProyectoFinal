@@ -1,6 +1,7 @@
 from django.db import models
 from usuarios.models import Usuario
 
+
 class Contacto(models.Model):
     fecha = models.DateTimeField(auto_now_add=True)
     asunto = models.CharField(max_length=255)
