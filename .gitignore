@@ -2,3 +2,6 @@
 
 local.py
 
+src/media/imagen_publicacion/*
+
+src/media/imagenes_perfil/*

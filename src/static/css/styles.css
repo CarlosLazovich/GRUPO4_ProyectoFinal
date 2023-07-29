@@ -64,7 +64,7 @@ footer {
     opacity: .5;
 }
 
-
+/* ESTILOS DEL INDEX */
 .index-hero {
     display: flex;
     justify-content: center;
@@ -186,12 +186,13 @@ ESTILOS DE LOS FORMULARIOS DE LAS TEMPLATES PUBLICACIONES
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 80%;
-    max-width: 680px;
-    margin: 50px auto;
 }
 .detalle-post-container .categoria {
     color: var(--main-color) !important;
+}
+.detalle-post-container img {
+    width: 100%;
+    object-fit: cover;
 }
 .detalle-post-container .texto {
     color: var(--light);
