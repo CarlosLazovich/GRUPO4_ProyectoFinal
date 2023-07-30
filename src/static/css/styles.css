@@ -1,6 +1,6 @@
 :root {
     --main-color: rgb(5, 93, 120);
-    --light: #3b3b3b;
+    --light: #3b3b3b8e;
     --font-Merriweather: 'Merriweather', sans-serif;
     --font-Inter: 'Inter', sans-serif;
 }
@@ -157,6 +157,18 @@ ESTILOS PARA LOS FORMULARIOS DE LAS TEMPLATES USUARIOS
 .form-container label {
     font-size: .9rem;
     color: var(--light) ;
+}
+/* ESTILOS FORMULARIO DE FILTARR LAS PUBLICACIONES */
+.filter-form {
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid var(--light) ;
+}
+.filter-form select {
+    width: 100%;
+    padding: 10px 20px;
+    border: 2px solid var(--main-color);
 }
 /* 
 ESTILOS DE LOS FORMULARIOS DE LAS TEMPLATES PUBLICACIONES

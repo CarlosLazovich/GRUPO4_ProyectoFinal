@@ -4,7 +4,31 @@
 {% block contenido %}
 
 <div class="inner-container">
-    <h2>Todas las publicaciones</h2>
+  <h2>Todas las publicaciones</h2>
+    <form method="get" class="filter-form d-flex flex-column flex-md-row gap-2 mb-5">
+
+      <select name="categoria" id="">
+
+          <option value="">Todas</option>
+          {% for categoria in categorias %}
+          <option value="{{categoria.id}}">{{categoria.nombre}}</option>
+          {% endfor %}
+
+      </select>
+
+      <select name="orderby" id="">
+          <option value="">Ordenar por</option>
+          <option value="fecha_asc">Fecha ascendente</option>
+          <option value="fecha_desc">Fecha descendente</option>
+          <option value="alf_asc">Alfabeticamente ascendente</option>
+          <option value="alf_desc">Alfabeticamente descendente</option>
+
+      </select>
+
+      <button type="submit" class="custom-button">Filtrar</button>
+  </form>
+  
+
     <div class="publicaciones-cards">
       
       {% for post in posteos %}
