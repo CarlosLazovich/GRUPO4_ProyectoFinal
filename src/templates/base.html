@@ -63,13 +63,12 @@
                 <ul class="dropdown-menu dropdown-menu-lg-end text-capitalize">
                   
                   {% if user.is_authenticated %}
-                  <li><a class="dropdown-item">{{user.username}}</a></li>
-                  <li><a class="dropdown-item" href="#">Ir a mi perfil</a></li>
+                  <li><p class="px-3">{{user.username}}</p></li>
                   <li><a class="dropdown-item" href="{% url 'usuarios:logout' %}">Cerrar Sesion</a></li>
                     
                   {% else %}
 
-                  <li><a class="dropdown-item" >Usuario No Registrado</a></li>
+                  <li><p class="px-3">Usuario No Registrado</p></li>
                   <li><a class="dropdown-item" href="{% url 'usuarios:login' %}">Iniciar Sesion</a></li>
                   {% endif %}
                     

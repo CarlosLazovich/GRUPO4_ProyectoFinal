@@ -40,8 +40,8 @@
   </div>
   
         
-        {% if user.is_authenticated %}
-        <a href="{% url 'publicaciones:postear' %}" class="custom-button" style="margin-left: 44%;">Postear algo nuevo</a>
+        {% if user.is_superuser %}
+        <a href="{% url 'publicaciones:postear' %}" class="custom-button mb-5">Postear algo nuevo</a>
 
         {% endif %}
             
