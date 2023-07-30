@@ -30,6 +30,9 @@ footer {
     color: var(--light);
     margin-top: auto;
 }
+i {
+    font-size: 20px !important;
+}
 .custom-button {
     display: block;
     width: 100%;
@@ -161,9 +164,6 @@ ESTILOS PARA LOS FORMULARIOS DE LAS TEMPLATES USUARIOS
 /* ESTILOS FORMULARIO DE FILTARR LAS PUBLICACIONES */
 .filter-form {
     width: 100%;
-    padding: 20px;
-    border-radius: 10px;
-    border: 1px solid var(--light) ;
 }
 .filter-form select {
     width: 100%;
