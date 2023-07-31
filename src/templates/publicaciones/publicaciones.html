@@ -46,6 +46,8 @@
             <div>
               <div class="d-flex justify-content-between">
                 <p class="categoria">#{{post.categoria}}</p>
+
+                
                 {% comment %} BOTON ME GUSTA {% endcomment %}
                 
                 {% if user.is_authenticated %}
@@ -61,7 +63,7 @@
   
                   {% endif %}
               </form>
-              
+
                 {% endif %}
                   
               </div>
@@ -82,6 +84,62 @@
         </div>
         <div class="divisor"></div>
       {% endfor %}
+
+{% comment %} PAGINADOR {% endcomment %}
+
+      {% if is_paginated %}
+
+      <nav class="d-block mx-auto mt-3">
+
+          <ul class="pagination">
+        
+        {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                    <span aria-hidden="true">Anterior</span>
+                </a>
+            </li>
+        {% else %}
+            <li class="page-item">
+                <a class="page-link disabled" href="#" aria-label="Previous">
+                    <span aria-hidden="true">Anterior</span>
+                </a>
+            </li>
+
+        {% endif %}
+
+        
+        {% for pagina in paginator.page_range %}
+            <li class="page-item"><a class="page-link {% if page_obj.number == pagina %} active {% endif %}
+                " href="?page={{pagina}}">{{ pagina }}</a></li>
+        {% endfor %}
+            
+        
+        {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page= {{ page_obj.next_page_number }}" aria-label="Next">
+                    <span aria-hidden="true">Siguiente</span>
+                </a>
+            </li>
+        {% else %}
+            <li class="page-item">
+                <a class="page-link disabled" href="#" aria-label="Next">
+                    <span aria-hidden="true">Siguiente</span>
+                </a>
+            </li>
+
+        {% endif %}
+            
+
+
+
+
+    </ul>
+</nav>
+
+    
+{% endif %}
+
         
     </div>
   </div>

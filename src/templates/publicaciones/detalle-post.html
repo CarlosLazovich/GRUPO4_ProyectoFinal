@@ -32,13 +32,13 @@
 
                 {% for comentario in post.comentarios.all %}
                 <div class="comentario d-flex gap-4 align-items-center rounded">
-                    <div class="mx-3">
+                    <div class="mx-3 text-center">
                         {% if user.imagen_perfil %}
                         <img src=" {{ user.imagen_perfil.url }} " alt="imagen de perfil" class="rounded-circle" width="50" height="50">
                         {% else %}
                         <i class="fa-regular fa-user"></i>
                         {% endif %}
-                        <p>{{comentario.autor.first_name}} {{comentario.autor.last_name}}</p>
+                        <p class="mb-0">{{comentario.autor.username}}</p>
                     </div>
                     <div>
                         <p>{{comentario.texto}}</p>

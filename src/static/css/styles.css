@@ -229,3 +229,17 @@ ESTILOS DE LOS FORMULARIOS DE LAS TEMPLATES PUBLICACIONES
     padding: 10px;
 
 }
+/* ESTILOS DEL PAGINADOR */
+.pagination {
+    font-weight: bold;
+}
+.pagination li {
+    border: 2px solid var(--main-color);
+}
+.pagination a {
+    padding: 4px 8px;
+}
+.pagination a.active {
+    border-color: var(--main-color);
+    background-color: var(--main-color) !important;
+}
