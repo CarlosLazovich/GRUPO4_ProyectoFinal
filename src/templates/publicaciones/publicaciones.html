@@ -5,6 +5,8 @@
 
 <div class="inner-container">
   <h2>Todas las publicaciones</h2>
+
+    {% comment %} FILTROS {% endcomment %}
     <form method="get" class="filter-form d-flex flex-column flex-md-row gap-2 mb-5">
 
       <select name="categoria" id="">
@@ -42,7 +44,28 @@
           
           <div class="d-flex flex-column justify-content-between w-100">
             <div>
-              <p class="categoria">#{{post.categoria}}</p>
+              <div class="d-flex justify-content-between">
+                <p class="categoria">#{{post.categoria}}</p>
+                {% comment %} BOTON ME GUSTA {% endcomment %}
+                
+                {% if user.is_authenticated %}
+                  
+                <form action="{% url 'publicaciones:me-gusta' %}" method="post">{% csrf_token %}
+                  <input type="hidden" name="publicacion_id" value="{{post.id}}">
+  
+                  {% if user in post.meGusta.all %}
+                  <button type="submit" class="text-danger" title="Quitar Like" style="border: none; background-color: transparent;"><i class="fa-solid fa-heart"></i></button>
+  
+                  {% else %}
+                  <button type="submit" class="text-danger" title="Dar Like" style="border: none;background-color: transparent;"><i class="fa-regular fa-heart"></i></button>
+  
+                  {% endif %}
+              </form>
+              
+                {% endif %}
+                  
+              </div>
+
               <h3>{{post.titulo}}</h3>
               <p class="fecha">Publicado el {{post.fecha}}</p>
             </div>
