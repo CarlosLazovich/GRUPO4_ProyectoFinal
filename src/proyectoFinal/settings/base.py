@@ -35,9 +35,9 @@ AUTH_USER_MODEL = 'usuarios.Usuario'
 SECRET_KEY = 'django-insecure-urgk@gda*pvrv6@bz&tyl#ieum2-&h@&5$nxkgf3jkwbb%v9@v'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['CarlosLazovich.pythonanywhere.com']
 
 
 # Application definition
@@ -72,7 +72,7 @@ ROOT_URLCONF = 'proyectoFinal.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -128,6 +128,11 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR,'static',
 ]
+
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
 
 # ARCHIVOS MEDIA
 MEDIA_URL = '/media/'
