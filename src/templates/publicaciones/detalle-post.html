@@ -18,7 +18,7 @@
         {% else %}
           <img src="{% static 'img/post-default.webp' %}">
         {% endif %}
-        <p class="texto">{{post.post}}</p>
+        <p class="texto">{{post.post | safe | linebreaksbr }}</p>
         <div class="comentarios-container">
             <h2>Comentarios</h2>
     
@@ -41,7 +41,7 @@
                         <p class="mb-0">{{comentario.autor.username}}</p>
                     </div>
                     <div>
-                        <p>{{comentario.texto}}</p>
+                        <p>{{comentario.texto }}</p>
                             {% if user.is_superuser or user == comentario.autor or user == comentario.post.creador %}
                             <a href="{% url 'publicaciones:borrar-comentario' comentario.id %}"><i class="fa-solid fa-trash"></i></a>
                             {% endif %}
